@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router } from "@reach/router"
+import { Router } from '@reach/router'
 
 import { QuilttProvider } from './quiltt'
 
@@ -10,8 +10,8 @@ export const App: React.VFC = () => {
   return (
     <QuilttProvider>
       <Router>
-        <Starter.Home path="/" />
-        <Auth.Page    path="/auth" />
+        <Starter.Home path='/' />
+        <Auth.Page path='/auth' />
       </Router>
     </QuilttProvider>
   )

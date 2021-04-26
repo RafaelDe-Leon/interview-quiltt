@@ -1,11 +1,11 @@
 import Axios from 'axios'
 
-const ENDPOINT = "https://auth.quiltt.io/v1/session"
+const ENDPOINT = 'https://auth.quiltt.io/v1/session'
 const CONFIG = {
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   },
-  validateStatus: (status: number) => status < 500
+  validateStatus: (status: number) => status < 500,
 }
 
 export type UsernamePayload = {
@@ -25,11 +25,19 @@ export const useQuilttAuth = () => {
       return Axios.get(ENDPOINT, CONFIG)
     },
     identify: (payload: UsernamePayload) => {
-      return Axios.post(ENDPOINT, { user: { ...payload, integration_id: integrationId } }, CONFIG)
+      return Axios.post(
+        ENDPOINT,
+        { user: { ...payload, integration_id: integrationId } },
+        CONFIG
+      )
     },
     authenticate: (payload: PasswordPayload) => {
-      return Axios.put(ENDPOINT, { user: { ...payload, integration_id: integrationId } }, CONFIG)
-    }
+      return Axios.put(
+        ENDPOINT,
+        { user: { ...payload, integration_id: integrationId } },
+        CONFIG
+      )
+    },
   }
 
   return AuthAPI
